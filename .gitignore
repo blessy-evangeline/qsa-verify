@@ -1,0 +1,8 @@
+xsim.dir/
+*.jou
+*.log
+*.pb
+*.wdb
+webtalk*
+.Xil/
+__pycache__/
