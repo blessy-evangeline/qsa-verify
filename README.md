@@ -19,7 +19,7 @@ AI accelerators fail in numerics (signed INT8 extremes, rounding, saturation) an
 | Phase | Status |
 |---|---|
 | 0. Environment and warm-up (adder UVM TB on xsim) | Done |
-| 1. Spec v1.0 and verification plan | Pending |
+| 1. Spec v1.0 and verification plan | Done |
 | 2. RTL (MAC, then systolic array) | Pending |
 | 3. Python golden model and vectors | Pending |
 | 4. UVM environment | Pending |
