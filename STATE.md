@@ -8,10 +8,11 @@
 - GitHub repo live and pinned: github.com/blessy-evangeline/qsa-verify
 - Spec v1.0 frozen and vPlan v1.0 written (spec/)
 - rtl/qsa_pe.sv and directed test tb/pe/qsa_pe_tb.sv pass (checks=22 errors=0)
+- rtl/qsa_array.sv (NxN, input skew) and tb/array/qsa_array_tb.sv pass: N=2 hand-computed case plus random N=2 and N=4 (checks=928 errors=0)
 
 ## Files
 
-.gitignore, LICENSE, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, rtl/qsa_pe.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
+.gitignore, LICENSE, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
 
 ## Rules learned
 
@@ -23,13 +24,13 @@
 
 ## Next 5 steps
 
-1. rtl/qsa_array.sv: NxN output-stationary array with input skew
-2. Directed 2x2 tile test against hand-computed results
-3. Directed 4x4 tile test
-4. Measure array latency and record it in a spec revision (A10)
+1. rtl/qsa_requant.sv: bias, multiply, round, shift, zero-point, clamp, ReLU (spec Section 3)
+2. Directed test for requant with hand-computed ties and saturation cases
+3. Measure array latency in a waveform and record it in a spec revision (A10)
+4. Python golden model (python/qsa_model.py) written from the spec
 5. Commit and push each stage
 
 ## Open issues
 
 - xsim 2022.2 code coverage unverified
-- Array latency not yet measured
+- Array latency derived on paper (last accumulate 2N-2 cycles after the last beat), not yet confirmed in a waveform
