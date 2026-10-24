@@ -9,12 +9,13 @@
 - Spec v1.0 frozen and vPlan v1.0 written (spec/)
 - rtl/qsa_pe.sv and directed test tb/pe/qsa_pe_tb.sv pass (checks=22 errors=0)
 - rtl/qsa_requant.sv and tb/requant/qsa_requant_tb.sv pass (25 directed cases: ties, saturation, bias wrap, relu order)
+- rtl/qsa_core.sv (control FSM + array + requant, AXI-Stream ports) and tb/core/qsa_core_tb.sv pass: 2 Python-derived jobs, output backpressure, TLAST early/missing, illegal K, recovery after errors
 - python/qsa_model.py (NumPy int64 golden model from the spec) and python/test_qsa_model.py pass (checks=30 errors=0)
 - rtl/qsa_array.sv (NxN, input skew) and tb/array/qsa_array_tb.sv pass: N=2 hand-computed case plus random N=2 and N=4 (checks=928 errors=0)
 
 ## Files
 
-.gitignore, LICENSE, python/qsa_model.py, python/test_qsa_model.py, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, tb/requant/qsa_requant_tb.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, rtl/qsa_requant.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
+.gitignore, LICENSE, python/qsa_model.py, python/test_qsa_model.py, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, tb/requant/qsa_requant_tb.sv, tb/core/qsa_core_tb.sv, rtl/qsa_core.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, rtl/qsa_requant.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
 
 ## Rules learned
 
@@ -27,13 +28,13 @@
 
 ## Next 5 steps
 
-1. rtl/qsa_ctrl.sv: control FSM (start, load K beats, compute, drain N rows, done, error)
-2. Directed test for the control FSM (normal job, bad TLAST, illegal K)
-3. Measure array latency in a waveform and record it in a spec revision (A10)
-4. rtl/qsa_regs.sv: AXI4-Lite register block
+1. rtl/qsa_regs.sv: AXI4-Lite register block (spec Section 6 and 8)
+2. Directed register test (reset values, read-only, W1C, SLVERR on unmapped)
+3. rtl/qsa_top.sv: regs + core, ports as in the spec
+4. Measure array latency in a waveform and record it in a spec revision (A10)
 5. Commit and push each stage
 
 ## Open issues
 
 - xsim 2022.2 code coverage unverified
-- Array latency derived on paper (last accumulate 2N-2 cycles after the last beat), not yet confirmed in a waveform
+- Array latency derived on paper (last accumulate 2N-2 cycles after the last beat); the core waits a conservative 2N cycles; exact value not yet confirmed in a waveform
