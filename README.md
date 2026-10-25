@@ -23,7 +23,7 @@ AI accelerators fail in numerics (signed INT8 extremes, rounding, saturation) an
 |---|---|
 | 0. Environment and warm-up (adder and MAC UVM testbenches on xsim) | Done |
 | 1. Spec v1.0 and verification plan | Done |
-| 2. RTL (PE, systolic array, requantization and control core done; AXI4-Lite registers and top pending) | In progress |
+| 2. RTL (PE, systolic array, requantization, control core and AXI4-Lite registers done; top pending) | In progress |
 | 3. Python golden model and vectors | In progress (golden model done, vector generator pending) |
 | 4. UVM environment | Pending |
 | 5. Coverage closure | Pending |
