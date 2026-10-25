@@ -9,6 +9,7 @@
 - Spec v1.0 frozen and vPlan v1.0 written (spec/)
 - rtl/qsa_pe.sv and directed test tb/pe/qsa_pe_tb.sv pass (checks=22 errors=0)
 - rtl/qsa_requant.sv and tb/requant/qsa_requant_tb.sv pass (25 directed cases: ties, saturation, bias wrap, relu order)
+- rtl/qsa_top.sv (regs + core) and tb/top/qsa_top_tb.sv pass: end-to-end over AXI4-Lite and AXI4-Stream with Python-derived outputs, irq, W1C, abort and recovery, illegal K
 - rtl/qsa_regs.sv (AXI4-Lite registers) and tb/regs/qsa_regs_tb.sv pass: reset values, field masks, bias, start/soft_reset pulses, W1C status, irq, SLVERR on unmapped, hard reset
 - Core break test (drain wait set to 0) fails with errors=7 of 83: caught only by the always-ready job; random stalls hide the bug
 - rtl/qsa_core.sv (control FSM + array + requant, AXI-Stream ports) and tb/core/qsa_core_tb.sv pass: 2 Python-derived jobs, output backpressure, TLAST early/missing, illegal K, recovery after errors
@@ -17,7 +18,7 @@
 
 ## Files
 
-.gitignore, LICENSE, python/qsa_model.py, python/test_qsa_model.py, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, tb/requant/qsa_requant_tb.sv, tb/core/qsa_core_tb.sv, tb/regs/qsa_regs_tb.sv, rtl/qsa_core.sv, rtl/qsa_regs.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, rtl/qsa_requant.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
+.gitignore, LICENSE, python/qsa_model.py, python/test_qsa_model.py, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, tb/requant/qsa_requant_tb.sv, tb/core/qsa_core_tb.sv, tb/regs/qsa_regs_tb.sv, tb/top/qsa_top_tb.sv, rtl/qsa_top.sv, rtl/qsa_core.sv, rtl/qsa_regs.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, rtl/qsa_requant.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
 
 ## Rules learned
 
@@ -32,10 +33,10 @@
 
 ## Next 5 steps
 
-1. rtl/qsa_top.sv: regs + core with spec ports (AXI4-Lite, two AXI4-Stream, irq)
-2. End-to-end directed test: program registers over AXI4-Lite, stream one job, read back, compare with Python values
-3. Start UVM stage 1: stream IN/OUT agents + scoreboard + sanity test
-4. Measure array latency in a waveform and record it in a spec revision (A10)
+1. UVM stage 1 in tb/uvm/: interfaces, stream IN and OUT agents, scoreboard with SV reference model, sanity test
+2. Measure array latency in a waveform and record it in a spec revision (A10)
+3. UVM stage 2: AXI4-Lite agent and register tests
+4. UVM stage 3: backpressure and gap knobs, error, reset and back-to-back tests
 5. Commit and push each stage
 
 ## Open issues
