@@ -1,0 +1,10 @@
+adder    *** TEST PASSED *** checks=19 errors=0
+mac      *** TEST PASSED *** checks=50 errors=0
+pe       *** PE TEST PASSED *** checks=22 errors=0
+array    *** ARRAY TEST PASSED *** checks=928 errors=0
+requant  *** REQUANT TEST PASSED *** checks=25 errors=0
+core     *** CORE TEST PASSED *** checks=83 errors=0
+regs     *** REGS TEST PASSED *** checks=101 errors=0
+top      *** TOP TEST PASSED *** checks=83 errors=0
+
+ALL TESTS PASSED

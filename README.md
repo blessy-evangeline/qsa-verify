@@ -59,16 +59,22 @@ results/  coverage reports, logs, plots
 
 AMD Vivado 2022.2 simulator (xvlog, xelab, xsim), UVM 1.2, Python 3, Git, on Windows 11.
 
-## Run the warm-up example
+## Reproduce the results
+
+In the Vivado Tcl Shell, from the repo root:
 
 ```
-cd tb/adder
-xvlog -sv -L uvm add_tb.sv
-xelab -L uvm top -s add_snap
-xsim add_snap -runall
+cd D:/VivadoProjects/qsa_verify
+source run_all.tcl
 ```
 
-Expected: `*** TEST PASSED *** checks=N errors=0`
+This compiles and runs every testbench and saves one log per test in `results/logs/`, plus `results/logs/SUMMARY.txt`. Each test ends with a line such as `*** TOP TEST PASSED *** checks=NN errors=0`.
+
+Python golden model self-test (Windows PowerShell, repo root):
+
+```
+python python\test_qsa_model.py
+```
 
 ## Author
 

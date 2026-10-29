@@ -6,3 +6,4 @@ xsim.dir/
 webtalk*
 .Xil/
 __pycache__/
+vivado_pid*.str
