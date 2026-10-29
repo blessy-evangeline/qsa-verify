@@ -39,6 +39,23 @@ AI accelerators fail in numerics (signed INT8 extremes, rounding, saturation) an
 | Mutation score | pending |
 | Real-model logit mismatches | pending |
 
+## Evidence
+
+Directed tests: 8 of 8 pass. Each ends with a result line such as `*** TOP TEST PASSED *** checks=83 errors=0`.
+
+![Regression summary](results/screenshots/regression_summary.png)
+
+End-to-end run (register programming, four jobs, interrupts):
+
+![Top-level waveform](results/waveforms/top_overview.png)
+
+One MAC processing element, checked against hand-computed accumulator values (12, -23, 16361, 105, 105, 0, 1):
+
+![PE waveform](results/waveforms/pe_mac_waveform.png)
+
+- Logs for every test: `results/logs/`
+- Deliberate-bug checks: [results/break_tests.md](results/break_tests.md)
+
 ## Documents
 
 - [Specification v1.0](spec/qsa_spec_v1.0.md)

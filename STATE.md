@@ -10,6 +10,7 @@
 - rtl/qsa_pe.sv and directed test tb/pe/qsa_pe_tb.sv pass (checks=22 errors=0)
 - rtl/qsa_requant.sv and tb/requant/qsa_requant_tb.sv pass (25 directed cases: ties, saturation, bias wrap, relu order)
 - Regression: run_all.tcl runs all 8 tests, ALL TESTS PASSED (checks: adder 19, mac 50, pe 22, array 928, requant 25, core 83, regs 101, top 83); logs in results/logs/
+- results/break_tests.md lists the 6 deliberate-bug checks (to be replaced by the 16-mutant table in Phase 6)
 - Break tests done for every block: a deliberately broken copy must make its testbench FAIL (core 7/83, regs 2/101, top 9/83, requant 7/25, array 663/928, MAC 42/50)
 - rtl/qsa_top.sv (regs + core) and tb/top/qsa_top_tb.sv pass: end-to-end over AXI4-Lite and AXI4-Stream with Python-derived outputs, irq, W1C, abort and recovery, illegal K
 - rtl/qsa_regs.sv (AXI4-Lite registers) and tb/regs/qsa_regs_tb.sv pass: reset values, field masks, bias, start/soft_reset pulses, W1C status, irq, SLVERR on unmapped, hard reset
@@ -44,7 +45,7 @@
 
 ## Open issues
 
-- Waveform screenshots (results/waveforms/) not captured yet; optional, do after UVM stage 1
+- Waveforms captured: top_overview.png, pe_mac_waveform.png; array and top-job zoom views optional
 - m_tlast stays high after a job (legal, but gate it with m_tvalid before the UVM monitor and SVA work)
 - xsim 2022.2 code coverage unverified
 - Array latency derived on paper (last accumulate 2N-2 cycles after the last beat); the core waits a conservative 2N cycles; exact value not yet confirmed in a waveform
