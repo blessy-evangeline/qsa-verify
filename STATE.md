@@ -9,6 +9,7 @@
 - Spec v1.0 frozen and vPlan v1.0 written (spec/)
 - rtl/qsa_pe.sv and directed test tb/pe/qsa_pe_tb.sv pass (checks=22 errors=0)
 - rtl/qsa_requant.sv and tb/requant/qsa_requant_tb.sv pass (25 directed cases: ties, saturation, bias wrap, relu order)
+- UVM stage 1 (tb/uvm/qsa_uvm_tb.sv): stream IN agent (active), stream OUT agent (TREADY driver + monitor), scoreboard with SV reference model, base test; DUT = qsa_core with configuration through qsa_in_if; passes; a unsigned-multiplier bug in the PE (mutant M1) makes it FAIL
 - RTL tidy: m_tlast_o is gated with m_tvalid_o (TLAST only while an output beat is valid); regression re-run after the change
 - Regression: run_all.tcl runs all 8 tests, ALL TESTS PASSED (checks: adder 19, mac 50, pe 22, array 928, requant 25, core 83, regs 101, top 83); logs in results/logs/
 - results/break_tests.md lists the 6 deliberate-bug checks (to be replaced by the 16-mutant table in Phase 6)
@@ -22,7 +23,7 @@
 
 ## Files
 
-.gitignore, LICENSE, run_all.tcl, results/logs/*.txt, results/screenshots/regression_summary.png, python/qsa_model.py, python/test_qsa_model.py, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, tb/requant/qsa_requant_tb.sv, tb/core/qsa_core_tb.sv, tb/regs/qsa_regs_tb.sv, tb/top/qsa_top_tb.sv, rtl/qsa_top.sv, rtl/qsa_core.sv, rtl/qsa_regs.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, rtl/qsa_requant.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
+.gitignore, LICENSE, run_all.tcl, results/logs/*.txt, results/screenshots/regression_summary.png, python/qsa_model.py, python/test_qsa_model.py, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, tb/requant/qsa_requant_tb.sv, tb/core/qsa_core_tb.sv, tb/regs/qsa_regs_tb.sv, tb/top/qsa_top_tb.sv, tb/uvm/qsa_uvm_tb.sv, rtl/qsa_top.sv, rtl/qsa_core.sv, rtl/qsa_regs.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, rtl/qsa_requant.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
 
 ## Rules learned
 
@@ -38,14 +39,15 @@
 
 ## Next 5 steps
 
-1. UVM stage 1 in tb/uvm/: interfaces, stream IN and OUT agents, scoreboard with SV reference model, sanity test
-2. Measure array latency in a waveform and record it in a spec revision (A10)
-3. UVM stage 2: AXI4-Lite agent and register tests
-4. UVM stage 3: backpressure and gap knobs, error, reset and back-to-back tests
+1. UVM stage 2: AXI4-Lite agent and register tests; DUT becomes qsa_top
+2. UVM stage 3: output backpressure and input gap knobs as config, directed corner tests, error (TLAST) and reset tests, back-to-back
+3. UVM stage 4: covergroups (operands, config, result, stream, reg, reset) with per-group percentages in report_phase
+4. UVM stage 5: SVA bind module (20+ assertions with cover properties), vector-file replay, dual-oracle cross-check against Python
 5. Commit and push each stage
 
 ## Open issues
 
+- UVM stage 1 limits: no coverage yet, TLAST-error jobs not generated, configuration bypasses the register block
 - Waveforms captured: top_overview.png, pe_mac_waveform.png; array and top-job zoom views optional
 - xsim 2022.2 code coverage unverified
 - Array latency derived on paper (last accumulate 2N-2 cycles after the last beat); the core waits a conservative 2N cycles; exact value not yet confirmed in a waveform
