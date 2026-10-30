@@ -6,5 +6,6 @@ requant  *** REQUANT TEST PASSED *** checks=25 errors=0
 core     *** CORE TEST PASSED *** checks=83 errors=0
 regs     *** REGS TEST PASSED *** checks=101 errors=0
 top      *** TOP TEST PASSED *** checks=83 errors=0
+uvm1     *** QSA UVM TEST PASSED *** checks=96 errors=0
 
 ALL TESTS PASSED

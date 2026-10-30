@@ -1,0 +1,100 @@
+== xvlog ==
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_pe.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_pe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_requant.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_requant
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module top
+== xelab ==
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: E:\Xilinx\Vivado\2022.2\bin\unwrapped\win64.o\xelab.exe -L uvm top -s uvm1_snap 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /proj/xbuilds/SWIP/9999.0_0921_2117/installs/lin64/Vivado/2023.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv, Line : 25994, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.$unit_qsa_pe_sv_1767603566
+Compiling package uvm.uvm_pkg
+Compiling package std.std
+Compiling module work.qsa_in_if
+Compiling module work.qsa_out_if
+Compiling module work.qsa_pe
+Compiling module work.qsa_array_default
+Compiling module work.qsa_requant
+Compiling module work.qsa_core_default
+Compiling module work.top
+Built simulation snapshot uvm1_snap
+== xsim ==
+
+****** xsim v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/uvm1_snap/xsim_script.tcl
+# xsim {uvm1_snap} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+UVM_INFO E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+----------------------------------------------------------------
+(C) 2013-2014 NVIDIA Corporation
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2007-2014 Mentor Graphics Corporation
+
+
+----------------------------------------------------------------
+
+UVM_INFO @ 0: reporter [RNTST] Running test qsa_base_test...
+UVM_INFO E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(318) @ 135000: uvm_test_top.m_qsa_env_h.m_in_agent_h.m_monitor_h [MONITOR] job observed: K=5 M=33 S=14 zp=8 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(533) @ 255000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 1 checked (K=5)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(318) @ 475000: uvm_test_top.m_qsa_env_h.m_in_agent_h.m_monitor_h [MONITOR] job observed: K=10 M=14 S=8 zp=-13 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(533) @ 595000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 2 checked (K=10)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(318) @ 685000: uvm_test_top.m_qsa_env_h.m_in_agent_h.m_monitor_h [MONITOR] job observed: K=5 M=42 S=11 zp=-3 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(533) @ 815000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 3 checked (K=5)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(318) @ 995000: uvm_test_top.m_qsa_env_h.m_in_agent_h.m_monitor_h [MONITOR] job observed: K=12 M=50 S=16 zp=2 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(533) @ 1135000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 4 checked (K=12)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(318) @ 1265000: uvm_test_top.m_qsa_env_h.m_in_agent_h.m_monitor_h [MONITOR] job observed: K=6 M=2 S=11 zp=-9 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(533) @ 1405000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 5 checked (K=6)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(318) @ 1455000: uvm_test_top.m_qsa_env_h.m_in_agent_h.m_monitor_h [MONITOR] job observed: K=1 M=48 S=15 zp=11 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(533) @ 1585000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 6 checked (K=1)
+UVM_INFO E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 1635000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_tb.sv(544) @ 1635000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] *** QSA UVM TEST PASSED *** checks=96 errors=0 (jobs=6)
+UVM_INFO E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 1635000: reporter [UVM/REPORT/SERVER] [UVM/RELNOTES]     1
+[UVM/COMP/NAMECHECK]     1
+[TEST_DONE]     1
+[SCOREBOARD]     7
+[RNTST]     1
+[MONITOR]     6
+** Report counts by id
+UVM_FATAL :    0
+UVM_ERROR :    0
+UVM_WARNING :    0
+UVM_INFO :   17
+** Report counts by severity
+
+--- UVM Report Summary ---
+
+
+$finish called at time : 1635 ns : File "E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+exit
+INFO: [Common 17-206] Exiting xsim at Fri Oct 30 19:23:44 2026...

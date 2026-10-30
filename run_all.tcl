@@ -38,6 +38,7 @@ set tests {
     {core    tb/core     {qsa_pe.sv qsa_array.sv qsa_requant.sv qsa_core.sv}                  qsa_core_tb.sv     qsa_core_tb     0}
     {regs    tb/regs     {qsa_regs.sv}                                                        qsa_regs_tb.sv     qsa_regs_tb     0}
     {top     tb/top      {qsa_pe.sv qsa_array.sv qsa_requant.sv qsa_core.sv qsa_regs.sv qsa_top.sv} qsa_top_tb.sv qsa_top_tb 0}
+    {uvm1    tb/uvm      {qsa_pe.sv qsa_array.sv qsa_requant.sv qsa_core.sv}                  qsa_uvm_tb.sv      top             1}
 }
 
 set summary ""
