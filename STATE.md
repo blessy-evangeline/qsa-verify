@@ -9,6 +9,7 @@
 - Spec v1.0 frozen and vPlan v1.0 written (spec/)
 - rtl/qsa_pe.sv and directed test tb/pe/qsa_pe_tb.sv pass (checks=22 errors=0)
 - rtl/qsa_requant.sv and tb/requant/qsa_requant_tb.sv pass (25 directed cases: ties, saturation, bias wrap, relu order)
+- RTL tidy: m_tlast_o is gated with m_tvalid_o (TLAST only while an output beat is valid); regression re-run after the change
 - Regression: run_all.tcl runs all 8 tests, ALL TESTS PASSED (checks: adder 19, mac 50, pe 22, array 928, requant 25, core 83, regs 101, top 83); logs in results/logs/
 - results/break_tests.md lists the 6 deliberate-bug checks (to be replaced by the 16-mutant table in Phase 6)
 - Break tests done for every block: a deliberately broken copy must make its testbench FAIL (core 7/83, regs 2/101, top 9/83, requant 7/25, array 663/928, MAC 42/50)
@@ -46,6 +47,5 @@
 ## Open issues
 
 - Waveforms captured: top_overview.png, pe_mac_waveform.png; array and top-job zoom views optional
-- m_tlast stays high after a job (legal, but gate it with m_tvalid before the UVM monitor and SVA work)
 - xsim 2022.2 code coverage unverified
 - Array latency derived on paper (last accumulate 2N-2 cycles after the last beat); the core waits a conservative 2N cycles; exact value not yet confirmed in a waveform

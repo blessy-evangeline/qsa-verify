@@ -57,7 +57,7 @@ wire [8:0] k_m1 = k_i - 9'd1;
 
 assign s_tready_o = (state == S_LOAD);
 assign m_tvalid_o = (state == S_OUT);
-assign m_tlast_o  = (row == N-1);
+assign m_tlast_o  = m_tvalid_o && (row == N-1);   // TLAST only while a beat is valid
 assign busy_o     = (state != S_IDLE);
 
 wire accept   = s_tvalid_i && s_tready_o;
