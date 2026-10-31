@@ -271,25 +271,25 @@ endclass: qsa_in_base_seq
 //   2. write CTRL (start, relu) and stream the K beats
 //   3. poll STATUS until done, then write 1 to clear done
 //------------------------------------------
-class qsa_job_vseq extends uvm_sequence;
-    `uvm_object_utils(qsa_job_vseq)
+class qsa_vseq_base extends uvm_sequence;
+    `uvm_object_utils(qsa_vseq_base)
 
     uvm_sequencer #(qsa_axil_seq_item) m_axil_sqr_h;
     uvm_sequencer #(qsa_in_seq_item)   m_in_sqr_h;
 
-    function new(string name = "qsa_job_vseq");
+    function new(string name = "qsa_vseq_base");
         super.new(name);
     endfunction: new
 
-    task wr(bit [7:0] a, bit [31:0] d);
+    task wr(bit [7:0] a, bit [31:0] d, bit expect_ok = 1'b1);
         qsa_axil_base_seq s_h;
         s_h = qsa_axil_base_seq::type_id::create("s_h");
         s_h.is_write = 1'b1;
         s_h.addr     = a;
         s_h.data     = d;
         s_h.start(m_axil_sqr_h);
-        if (s_h.resp_o != 2'b00)
-            `uvm_error("qsa_job_vseq", $sformatf("write to 0x%0h returned resp=%0d", a, s_h.resp_o))
+        if (expect_ok && s_h.resp_o != 2'b00)
+            `uvm_error("qsa_vseq_base", $sformatf("write to 0x%0h returned resp=%0d", a, s_h.resp_o))
     endtask: wr
 
     task rd(bit [7:0] a, output bit [31:0] d);
@@ -301,6 +301,14 @@ class qsa_job_vseq extends uvm_sequence;
         s_h.start(m_axil_sqr_h);
         d = s_h.rdata_o;
     endtask: rd
+endclass: qsa_vseq_base
+
+class qsa_job_vseq extends qsa_vseq_base;
+    `uvm_object_utils(qsa_job_vseq)
+
+    function new(string name = "qsa_job_vseq");
+        super.new(name);
+    endfunction: new
 
     task body();
         qsa_job_cfg     m_job_cfg_h;
@@ -340,6 +348,85 @@ class qsa_job_vseq extends uvm_sequence;
         join
     endtask: body
 endclass: qsa_job_vseq
+
+//------------------------------------------
+// Virtual sequence: register test (spec Section 6 and 8)
+//   reset values, field masks, CTRL, misaligned addresses, STATUS writes,
+//   unmapped addresses (SLVERR), then random accesses. The scoreboard predicts every response.
+//------------------------------------------
+class qsa_reg_vseq extends qsa_vseq_base;
+    `uvm_object_utils(qsa_reg_vseq)
+
+    function new(string name = "qsa_reg_vseq");
+        super.new(name);
+    endfunction: new
+
+    function bit [7:0] reg_addr(int i);
+        if (i <= 6) return i * 4;
+        else        return 8'h20 + (i - 7) * 4;
+    endfunction: reg_addr
+
+    task body();
+        bit [31:0] d;
+        bit [7:0]  a;
+
+        // 1. Reset values of every mapped register
+        for (int i = 0; i < 7 + `QSA_N; i++) rd(reg_addr(i), d);
+
+        // 2. Field masks: write all ones, read back
+        wr(8'h08, 32'hFFFFFFFF);  rd(8'h08, d);
+        wr(8'h0C, 32'hFFFFFFFF);  rd(8'h0C, d);
+        wr(8'h10, 32'hFFFFFFFF);  rd(8'h10, d);
+        wr(8'h14, 32'hFFFFFFFF);  rd(8'h14, d);
+        wr(8'h18, 32'hFFFFFFFF);  rd(8'h18, d);
+        for (int i = 0; i < `QSA_N; i++) begin
+            wr(8'h20 + 4*i, $urandom);
+            rd(8'h20 + 4*i, d);
+        end
+
+        // 3. CTRL: relu bit reads back, start and soft_reset bits read 0
+        wr(8'h00, 32'h4);  rd(8'h00, d);
+        wr(8'h00, 32'h2);  rd(8'h00, d);
+
+        // 4. Address bits [1:0] are ignored
+        rd(8'h09, d);  rd(8'h0B, d);  rd(8'h0E, d);
+
+        // 5. STATUS: busy is read-only, write-1-to-clear has nothing to clear
+        wr(8'h04, 32'h1);
+        wr(8'h04, 32'h7);
+        rd(8'h04, d);
+
+        // 6. Unmapped addresses: SLVERR, reads return 0, writes change nothing
+        rd(8'h1C, d);  rd(8'h30, d);  rd(8'h40, d);  rd(8'hFC, d);
+        wr(8'h1C, 32'h12345678, 1'b0);
+        wr(8'h30, 32'h12345678, 1'b0);
+        wr(8'hFC, 32'h12345678, 1'b0);
+        rd(8'h08, d);
+
+        // 7. Random accesses (no start or soft_reset bit in CTRL writes)
+        for (int n = 0; n < 40; n++) begin
+            if ($urandom_range(0, 9) < 6) begin
+                a = reg_addr($urandom_range(0, 6 + `QSA_N));
+            end else begin
+                case ($urandom_range(0, 4))
+                    0:       a = 8'h1C;
+                    1:       a = 8'h30;
+                    2:       a = 8'h34;
+                    3:       a = 8'h80;
+                    default: a = 8'hFC;
+                endcase
+            end
+            a = a | $urandom_range(0, 3);
+            if ($urandom_range(0, 1)) begin
+                d = $urandom;
+                if (a[7:2] == 6'd0) d = d & 32'hFFFFFFFC;
+                wr(a, d, 1'b0);
+            end else begin
+                rd(a, d);
+            end
+        end
+    endtask: body
+endclass: qsa_reg_vseq
 
 //------------------------------------------
 // Driver (AXI4-Lite master)
@@ -742,6 +829,9 @@ class qsa_scoreboard extends uvm_component;
     bit                m_sh_relu;
     bit [31:0]         m_sh_bias [`QSA_N];
     qsa_cfg_snap       m_cfg_q [$];
+    bit                m_sh_irq_en;
+    bit                m_started;       // a job start has been observed
+    int unsigned       m_reg_checks;
 
     int unsigned m_jobs_checked;
     int unsigned m_checks;
@@ -790,20 +880,83 @@ class qsa_scoreboard extends uvm_component;
                 for (int i = 0; i < `QSA_N; i++) snap.bias[i] = m_sh_bias[i];
                 `uvm_info("SCOREBOARD", $sformatf("start: snapshot K=%0d M=%0d S=%0d zp=%0d relu=%0b", snap.k, snap.m, snap.s, snap.zp, snap.relu), UVM_MEDIUM)
                 m_cfg_q.push_back(snap);
+                m_started = 1'b1;
             end
         end
         else if (widx == 6'd2) m_sh_k  = t.data[8:0];
         else if (widx == 6'd3) m_sh_m  = t.data[15:0];
         else if (widx == 6'd4) m_sh_s  = t.data[4:0];
         else if (widx == 6'd5) m_sh_zp = t.data[7:0];
+        else if (widx == 6'd6) m_sh_irq_en = t.data[0];
         else if (widx >= 6'd8 && widx < 6'd8 + `QSA_N) m_sh_bias[widx - 6'd8] = t.data;
     endfunction: update_shadow
+
+    // Mapped addresses (spec Section 6): 0x00..0x18 and BIAS at 0x20 + 4i
+    function bit is_mapped(bit [7:0] a);
+        bit [5:0] w;
+        w = a[7:2];
+        return (w <= 6'd6) || (w >= 6'd8 && w < 6'd8 + `QSA_N);
+    endfunction: is_mapped
+
+    // Expected read data of a mapped, non-STATUS register, from the shadow copy
+    function bit [31:0] expected_read(bit [7:0] a);
+        bit [5:0] w;
+        w = a[7:2];
+        if      (w == 6'd0) return {29'd0, m_sh_relu, 2'b00};
+        else if (w == 6'd2) return {23'd0, m_sh_k};
+        else if (w == 6'd3) return {16'd0, m_sh_m};
+        else if (w == 6'd4) return {27'd0, m_sh_s};
+        else if (w == 6'd5) return {24'd0, m_sh_zp};
+        else if (w == 6'd6) return {31'd0, m_sh_irq_en};
+        else if (w >= 6'd8 && w < 6'd8 + `QSA_N) return m_sh_bias[w - 6'd8];
+        return 32'd0;
+    endfunction: expected_read
+
+    // Check one observed AXI4-Lite access against the register model
+    function void check_access(qsa_axil_seq_item t);
+        bit [1:0]  exp_resp;
+        bit [31:0] exp_data;
+        exp_resp = is_mapped(t.addr) ? 2'b00 : 2'b10;
+        m_reg_checks++;
+        if (t.resp !== exp_resp) begin
+            m_errors++;
+            `uvm_error("SCOREBOARD", $sformatf("REG_RESP addr=0x%0h %s resp=%0d exp=%0d", t.addr, t.is_write ? "write" : "read", t.resp, exp_resp))
+        end
+        if (t.is_write) begin
+            if (is_mapped(t.addr)) update_shadow(t);
+        end else begin
+            m_reg_checks++;
+            if (!is_mapped(t.addr)) begin
+                if (t.rdata !== 32'd0) begin
+                    m_errors++;
+                    `uvm_error("SCOREBOARD", $sformatf("REG_DATA unmapped read addr=0x%0h data=0x%0h exp=0", t.addr, t.rdata))
+                end
+            end else if (t.addr[7:2] == 6'd1) begin
+                // STATUS: exact 0 before any job; afterwards only the unused bits and err_len are predictable
+                if (!m_started) begin
+                    if (t.rdata !== 32'd0) begin
+                        m_errors++;
+                        `uvm_error("SCOREBOARD", $sformatf("REG_DATA STATUS idle read=0x%0h exp=0", t.rdata))
+                    end
+                end else if (t.rdata[31:3] !== 29'd0 || t.rdata[2] !== 1'b0) begin
+                    m_errors++;
+                    `uvm_error("SCOREBOARD", $sformatf("REG_DATA STATUS read=0x%0h has unexpected bits", t.rdata))
+                end
+            end else begin
+                exp_data = expected_read(t.addr);
+                if (t.rdata !== exp_data) begin
+                    m_errors++;
+                    `uvm_error("SCOREBOARD", $sformatf("REG_DATA addr=0x%0h got=0x%0h exp=0x%0h", t.addr, t.rdata, exp_data))
+                end
+            end
+        end
+    endfunction: check_access
 
     task axil_thread();
         qsa_axil_seq_item t_h;
         forever begin
             m_axil_fifo_h.get(t_h);
-            if (t_h.is_write && t_h.resp == 2'b00) update_shadow(t_h);
+            check_access(t_h);
         end
     endtask: axil_thread
 
@@ -870,9 +1023,9 @@ class qsa_scoreboard extends uvm_component;
         svr   = uvm_report_server::get_server();
         n_err = svr.get_severity_count(UVM_ERROR) + svr.get_severity_count(UVM_FATAL);
         if (n_err == 0 && m_errors == 0 && m_checks > 0)
-            `uvm_info("SCOREBOARD", $sformatf("*** QSA UVM2 TEST PASSED *** checks=%0d errors=%0d (jobs=%0d)", m_checks, m_errors, m_jobs_checked), UVM_NONE)
+            `uvm_info("SCOREBOARD", $sformatf("*** QSA UVM2 TEST PASSED *** checks=%0d errors=%0d (jobs=%0d, reg_checks=%0d)", m_checks + m_reg_checks, m_errors, m_jobs_checked, m_reg_checks), UVM_NONE)
         else
-            `uvm_info("SCOREBOARD", $sformatf("*** QSA UVM2 TEST FAILED *** checks=%0d errors=%0d (jobs=%0d, uvm_errors=%0d)", m_checks, m_errors, m_jobs_checked, n_err), UVM_NONE)
+            `uvm_info("SCOREBOARD", $sformatf("*** QSA UVM2 TEST FAILED *** checks=%0d errors=%0d (jobs=%0d, reg_checks=%0d, uvm_errors=%0d)", m_checks + m_reg_checks, m_errors, m_jobs_checked, m_reg_checks, n_err), UVM_NONE)
     endfunction: report_phase
 endclass: qsa_scoreboard
 
@@ -929,8 +1082,14 @@ class qsa_base_test extends uvm_test;
 
     task run_phase(uvm_phase phase);
         qsa_job_vseq m_vseq_h;
+        qsa_reg_vseq m_rvseq_h;
 
         phase.raise_objection(this);
+
+        // Register test first, on an idle DUT
+        m_rvseq_h = qsa_reg_vseq::type_id::create("m_rvseq_h");
+        m_rvseq_h.m_axil_sqr_h = m_qsa_env_h.m_axil_agent_h.m_sequencer_h;
+        m_rvseq_h.start(null);
 
         for (int j = 0; j < m_cfg_h.num_jobs; j++) begin
             if (j == m_cfg_h.num_jobs / 2) m_cfg_h.ready_mode = 1;

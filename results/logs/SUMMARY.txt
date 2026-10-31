@@ -7,5 +7,6 @@ core     *** CORE TEST PASSED *** checks=83 errors=0
 regs     *** REGS TEST PASSED *** checks=101 errors=0
 top      *** TOP TEST PASSED *** checks=83 errors=0
 uvm1     *** QSA UVM TEST PASSED *** checks=96 errors=0
+uvm2     *** QSA UVM2 TEST PASSED *** checks=382 errors=0
 
 ALL TESTS PASSED
