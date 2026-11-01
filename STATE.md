@@ -9,6 +9,7 @@
 - Spec v1.0 frozen and vPlan v1.0 written (spec/)
 - rtl/qsa_pe.sv and directed test tb/pe/qsa_pe_tb.sv pass (checks=22 errors=0)
 - rtl/qsa_requant.sv and tb/requant/qsa_requant_tb.sv pass (25 directed cases: ties, saturation, bias wrap, relu order)
+- UVM stage 3a (tb/uvm/qsa_uvm_s3_tb.sv, built on stage 2): scoreboard classifies each job from the beats the DUT really accepted (TLAST position vs K), predicts abort with err_len, illegal-K rejection, ignored start-while-busy; vseq error modes (TLAST early, TLAST missing, K = 0, K = 300), recovery job after each; output patterns always-ready, random, one-cycle, long stalls; input gap knob; global watchdog; passes (see results/logs/uvm3.txt); two core bugs (TLAST check removed, illegal-K check removed) make it FAIL
 - UVM stage 2b (same file): register predictor in the scoreboard checks every AXI4-Lite response and read (reset values, field masks, CTRL bits, address bits [1:0] ignored, STATUS before any job, SLVERR and zero data on unmapped); register test virtual sequence (directed + 40 random accesses) runs before the jobs; a regs bug (SLVERR replaced by OKAY on unmapped writes) makes it FAIL
 - UVM stage 2a (tb/uvm/qsa_uvm_s2_tb.sv): DUT = qsa_top; AXI4-Lite agent (driver, monitor, sequencer); virtual sequence programs registers, starts the job, streams the tile, polls STATUS, clears done; scoreboard builds a shadow register file from the AXI4-Lite monitor and checks every output element against the SV model; passes; a wiring bug (zero point not reaching the core) makes it FAIL
 - UVM stage 1 (tb/uvm/qsa_uvm_tb.sv): stream IN agent (active), stream OUT agent (TREADY driver + monitor), scoreboard with SV reference model, base test; DUT = qsa_core with configuration through qsa_in_if; passes; a unsigned-multiplier bug in the PE (mutant M1) makes it FAIL
@@ -25,7 +26,7 @@
 
 ## Files
 
-.gitignore, LICENSE, run_all.tcl, results/logs/*.txt, results/screenshots/regression_summary.png, python/qsa_model.py, python/test_qsa_model.py, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, tb/requant/qsa_requant_tb.sv, tb/core/qsa_core_tb.sv, tb/regs/qsa_regs_tb.sv, tb/top/qsa_top_tb.sv, tb/uvm/qsa_uvm_tb.sv, tb/uvm/qsa_uvm_s2_tb.sv, rtl/qsa_top.sv, rtl/qsa_core.sv, rtl/qsa_regs.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, rtl/qsa_requant.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
+.gitignore, LICENSE, run_all.tcl, results/logs/*.txt, results/screenshots/regression_summary.png, python/qsa_model.py, python/test_qsa_model.py, README.md, STATE.md, tb/adder/add_tb.sv, tb/mac/mac_tb.sv, tb/pe/qsa_pe_tb.sv, tb/array/qsa_array_tb.sv, tb/requant/qsa_requant_tb.sv, tb/core/qsa_core_tb.sv, tb/regs/qsa_regs_tb.sv, tb/top/qsa_top_tb.sv, tb/uvm/qsa_uvm_tb.sv, tb/uvm/qsa_uvm_s2_tb.sv, tb/uvm/qsa_uvm_s3_tb.sv, rtl/qsa_top.sv, rtl/qsa_core.sv, rtl/qsa_regs.sv, rtl/qsa_pe.sv, rtl/qsa_array.sv, rtl/qsa_requant.sv, spec/qsa_spec_v1.0.md, spec/qsa_vplan_v1.0.md
 
 ## Rules learned
 
@@ -41,7 +42,7 @@
 
 ## Next 5 steps
 
-1. UVM stage 3: output backpressure and input gap knobs as config, TLAST-error jobs, illegal K, reset in every phase, back-to-back jobs, start while busy
+1. UVM stage 3b: hard reset and soft reset in every phase (idle, load, compute, drain, done-pending); reset-aware agents and scoreboard
 2. UVM stage 4: covergroups (operands, config, result, stream, reg, reset) with per-group percentages in report_phase
 3. UVM stage 5: SVA bind module (20+ assertions with cover properties), vector-file replay, dual-oracle cross-check against Python
 4. Python regression and mutation harness (16 mutants, killed / survived table)
@@ -49,6 +50,7 @@
 
 ## Open issues
 
+- UVM stage 3a limits: no reset-in-phase scenarios yet, no coverage, STATUS busy/done not predicted during jobs
 - UVM stage 2 limits: no coverage yet, STATUS busy/done not predicted during jobs (only unused bits and err_len), TLAST-error and illegal-K jobs not generated, one outstanding job only
 - results/screenshots/regression_summary.png still shows the 8-test run; retake it from SUMMARY.txt after uvm2 joins the regression
 - Waveforms captured: top_overview.png, pe_mac_waveform.png; array and top-job zoom views optional

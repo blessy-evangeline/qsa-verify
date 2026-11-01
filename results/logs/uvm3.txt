@@ -1,0 +1,376 @@
+== xvlog ==
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_pe.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_pe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_array.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_array
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_requant.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_requant
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_core.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_regs.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_regs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/rtl/qsa_top.sv" into library work
+INFO: [VRFC 10-311] analyzing module qsa_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module top
+== xelab ==
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: E:\Xilinx\Vivado\2022.2\bin\unwrapped\win64.o\xelab.exe -L uvm top -s uvm3_snap 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4468] File : /proj/xbuilds/SWIP/9999.0_0921_2117/installs/lin64/Vivado/2023.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv, Line : 25994, RANDC variable size more than 8 bits. This will be treated as a RAND variable instead.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.$unit_qsa_pe_sv_2266506913
+Compiling package uvm.uvm_pkg
+Compiling package std.std
+Compiling module work.qsa_axil_if
+Compiling module work.qsa_in_if
+Compiling module work.qsa_out_if
+Compiling module work.qsa_regs_default
+Compiling module work.qsa_pe
+Compiling module work.qsa_array_default
+Compiling module work.qsa_requant
+Compiling module work.qsa_core_default
+Compiling module work.qsa_top
+Compiling module work.top
+Built simulation snapshot uvm3_snap
+== xsim ==
+
+****** xsim v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/uvm3_snap/xsim_script.tcl
+# xsim {uvm3_snap} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+UVM_INFO E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+----------------------------------------------------------------
+(C) 2013-2014 NVIDIA Corporation
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2007-2014 Mentor Graphics Corporation
+
+
+----------------------------------------------------------------
+
+UVM_INFO @ 0: reporter [RNTST] Running test qsa_base_test...
+UVM_INFO E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 495000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0xffffffff
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 575000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0xffffffff
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 655000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xffffffff
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 735000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xffffffff
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 835000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x18 data=0xffffffff
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 895000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xbfbb9ac1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 955000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x41045bb6
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 1015000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0x51da5640
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 1095000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0x881218a0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 1155000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 1235000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 1455000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 1505000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x7
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 1945000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x6 data=0x1fb929ba
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 2045000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x26 data=0x7a7d8b6e
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 2095000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x6 data=0x4c039a51
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 2245000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x91bc3b37
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 2285000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xd data=0x49a015b1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 2515000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x5671b979
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 2595000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x17 data=0x46fec73f
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3095000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x6 data=0xb05567ab
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3205000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x1 data=0x760268e8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3245000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x11 data=0x77186b01
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3295000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x3 data=0x977b8110
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3325000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xd data=0x4ea5db6b
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3365000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x25 data=0xac114abe
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3405000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2b data=0x88859912
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3455000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x522c6056
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3495000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3545000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x32
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3595000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x9
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3625000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3675000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffffbcb
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3725000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x4d8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3755000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffb6e
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3785000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffe35
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 3835000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 3835000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=8 M=50 S=9 zp=4 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 4165000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 1 checked (K=8)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4255000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4295000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0xc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4325000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x9
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4355000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xd
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4385000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xfe
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4435000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffff8cc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4475000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffff850
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4505000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xd3
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4555000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffff860
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 4605000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 4605000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=12 M=9 S=13 zp=-2 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 4945000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 2 checked (K=12)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5025000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5075000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5115000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5165000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5215000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xa
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5265000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffff96a
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5305000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffffa86
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5355000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffd0f
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5395000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0x37e
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5435000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 5435000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=1 M=2 S=8 zp=10 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 5565000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 3 checked (K=1)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5635000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5685000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0xc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5735000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x14
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5765000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x10
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5795000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5825000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x5d1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5865000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x3f5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5895000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0x732
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5925000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffb03
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 5955000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 5955000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=12 M=20 S=16 zp=1 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 6335000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 4 checked (K=12)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6415000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6465000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x6
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6515000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x22
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6545000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xb
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6585000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xef
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6635000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x273
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6665000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x51c
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6715000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0x36f
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6745000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffb9b
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 6775000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 6775000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=6 M=34 S=11 zp=-17 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 7025000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 5 checked (K=6)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7095000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7125000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7155000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x3b
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7195000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xe
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7245000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xf
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7275000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffffcc1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7305000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffffe4c
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7355000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0x617
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7405000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffa43
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7445000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 7445000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=4 M=59 S=14 zp=15 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 7675000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 6 checked (K=4)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7765000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7795000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7825000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x3c
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7875000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x9
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7915000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0x3
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7945000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x7a3
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 7975000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x14
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8005000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffd35
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8045000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0x56d
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8075000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 8075000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=1 M=60 S=9 zp=3 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 8235000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 7 checked (K=1)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8325000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8375000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x6
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8405000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x22
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8455000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xb
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8495000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xf9
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8545000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffffb02
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8585000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x676
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8625000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffb4d
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8675000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xa6
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 8715000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 8715000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=6 M=34 S=11 zp=-7 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 8935000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 8 checked (K=6)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9035000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9085000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9125000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x6
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9165000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x10
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9205000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xa
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9255000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffffd65
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9305000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x661
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9335000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffff990
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9385000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffc78
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 9425000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 9425000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=8 M=6 S=16 zp=10 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 10245000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 9 checked (K=8)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10325000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10365000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10395000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x27
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10435000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10485000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xb
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10535000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x5ce
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10575000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x149
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10625000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffd53
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10655000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffc70
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 10685000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 10685000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=8 M=39 S=8 zp=11 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 11605000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 10 checked (K=8)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11675000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11725000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0xc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11755000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x26
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11805000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x10
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11835000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0x13
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11865000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xffffff59
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11905000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffffc21
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11945000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0x625
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 11975000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffff84b
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12015000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 12015000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=12 M=38 S=16 zp=19 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 12255000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 11 checked (K=12)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12345000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12395000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12425000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x17
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12465000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12515000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0x7
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12555000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffffd8c
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12605000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffffe91
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12655000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffec8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12685000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xffffff23
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12735000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 12735000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=2 M=23 S=8 zp=7 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1069) @ 12745000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job aborted as expected after 1 beats (K=2)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12795000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12825000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12875000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x2a
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12925000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xb
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 12955000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xf5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13005000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffffd2c
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13035000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x4b
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13065000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffebc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13115000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0x705
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13165000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 13165000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=4 M=42 S=11 zp=-11 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 13325000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 12 checked (K=4)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13415000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13455000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x3
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13485000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13535000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xa
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13565000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xff
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13595000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffffceb
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13625000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x147
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13665000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffa5c
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13715000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0x18a
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13745000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 13745000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=3 M=4 S=10 zp=-1 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1069) @ 13785000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job aborted as expected after 3 beats (K=3)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13865000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13905000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13955000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x3d
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 13995000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14035000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xf5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14065000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x530
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14105000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffff9f5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14145000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffd91
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14195000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffd08
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14245000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 14245000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=4 M=61 S=8 zp=-11 relu=1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 14435000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 13 checked (K=4)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14505000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14535000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14575000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x35
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14615000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14655000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14705000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x275
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14735000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xffffffaf
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14765000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffff840
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14815000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0x3b1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14845000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(945) @ 14845000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start rejected: illegal K=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14925000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14965000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0xa
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 14995000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x3d
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15025000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xd
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15075000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xfa
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15125000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x55f
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15155000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x2e4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15195000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0x1e7
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15245000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffff8cc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15285000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 15285000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=10 M=61 S=13 zp=-6 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 15585000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 14 checked (K=10)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15665000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15715000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x12c
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15755000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0xc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15795000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xd
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15835000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xe
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15875000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffff9bd
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15905000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffffe3a
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15945000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffba4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 15975000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffc3d
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16025000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(945) @ 16025000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start rejected: illegal K=300
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16095000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x4
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16135000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x7
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16165000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0xa
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16195000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16225000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xf7
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16255000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x1d5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16285000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0x5f8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16335000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffecd
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16365000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xfffffbd1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16405000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 16405000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=7 M=10 S=8 zp=-9 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 16635000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 15 checked (K=7)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16725000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16765000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0x9
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16805000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x30
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16845000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0x8
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16885000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0x14
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16925000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0x6bf
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 16965000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffff8f5
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17005000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffff859
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17035000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0x478
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17075000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 17075000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=9 M=48 S=8 zp=20 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17105000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(939) @ 17105000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start ignored: a job is already running
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 17405000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 16 checked (K=9)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17475000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17515000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x8 data=0xa
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17555000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0xc data=0x2f
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17585000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x10 data=0xc
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17615000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x14 data=0xef
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17645000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x20 data=0xfffff856
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17695000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x24 data=0xfffffa90
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17745000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x28 data=0xfffffe49
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17795000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x2c data=0xffffff91
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17845000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(955) @ 17845000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start: snapshot K=10 M=47 S=12 zp=-17 relu=0
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 17875000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x0 data=0x1
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(939) @ 17875000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] start ignored: a job is already running
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1101) @ 18125000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] job 17 checked (K=10)
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(931) @ 18175000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] shadow write addr=0x4 data=0x2
+UVM_INFO E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 18280000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO D:/VivadoProjects/qsa_verify/tb/uvm/qsa_uvm_s3_tb.sv(1127) @ 18280000: uvm_test_top.m_qsa_env_h.m_scoreboard_h [SCOREBOARD] *** QSA UVM3 TEST PASSED *** checks=936 errors=0 (jobs=17, reg_checks=664, aborted=2, illegal_k=2, ignored_starts=2)
+UVM_INFO E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 18280000: reporter [UVM/REPORT/SERVER] [UVM/RELNOTES]     1
+[UVM/COMP/NAMECHECK]     1
+[TEST_DONE]     1
+[SCOREBOARD]   283
+[RNTST]     1
+** Report counts by id
+UVM_FATAL :    0
+UVM_ERROR :    0
+UVM_WARNING :    0
+UVM_INFO :  287
+** Report counts by severity
+
+--- UVM Report Summary ---
+
+
+$finish called at time : 18280 ns : File "E:/Xilinx/Vivado/2022.2/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+exit
+INFO: [Common 17-206] Exiting xsim at Mon Nov  2 00:17:08 2026...

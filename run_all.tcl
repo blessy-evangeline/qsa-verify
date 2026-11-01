@@ -40,6 +40,7 @@ set tests {
     {top     tb/top      {qsa_pe.sv qsa_array.sv qsa_requant.sv qsa_core.sv qsa_regs.sv qsa_top.sv} qsa_top_tb.sv qsa_top_tb 0}
     {uvm1    tb/uvm      {qsa_pe.sv qsa_array.sv qsa_requant.sv qsa_core.sv}                  qsa_uvm_tb.sv      top             1}
     {uvm2    tb/uvm      {qsa_pe.sv qsa_array.sv qsa_requant.sv qsa_core.sv qsa_regs.sv qsa_top.sv} qsa_uvm_s2_tb.sv top 1}
+    {uvm3    tb/uvm      {qsa_pe.sv qsa_array.sv qsa_requant.sv qsa_core.sv qsa_regs.sv qsa_top.sv} qsa_uvm_s3_tb.sv top 1}
 }
 
 set summary ""
